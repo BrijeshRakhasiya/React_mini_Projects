@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import RegisterForm_class from './RegisterForm_class';
+import RegisterForm_hooks from './RegisterForm_hooks';
 
 function App() {
-  const [count, setCount] = useState(0)
+  return (<>
+    <h1>Registration Forms Demo</h1>
+    <br />
+    <Router>
+      <nav style={{ display: 'flex', gap: '20px', justifyContent: 'center', marginBottom: '30px' }}>
+        <Link
+          to='/registration_class'
+          style={{
+            padding: '10px 20px',
+            textDecoration: 'none'
+          }}
+        >
+          Registration Class
+        </Link>
+        <span style={{ margin: '0 10px', fontSize: '20px', alignSelf: 'center' }}>|</span>
+        <Link
+          to='/registration_hooks'
+          style={{
+            padding: '10px 20px',
+            textDecoration: 'none'
+          }}
+        >
+          Registration Hooks
+        </Link>
+      </nav>
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <Routes>
+        <Route path='*' element={<h1>404 File Not Found</h1>} />
+        <Route path='/registration_hooks' element={<RegisterForm_hooks />} />
+        <Route path='/registration_class' element={<RegisterForm_class />} />
+      </Routes>
+    </Router>
+
+  </>);
 }
-
-export default App
+export default App;

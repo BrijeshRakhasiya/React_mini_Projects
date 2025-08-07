@@ -4,8 +4,9 @@ import './index.css'
 import App from './App.jsx'
 import SimpleForm from './SimpleForm.jsx'
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <SimpleForm/>
+    <App/>
   </StrictMode>,
 )
